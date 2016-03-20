@@ -5,23 +5,34 @@
     xmlns:local="using:WallboardClient"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" 
+    Loaded="Page_Loaded"
+    KeyDown="Page_KeyDown">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,0">
 
-        <Grid>
+        <Grid Name="MainGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="150                                "/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="35" />
+                <RowDefinition Height="0"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBox x:Name="Address" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Url" VerticalAlignment="Top" Width="Auto" RenderTransformOrigin="0.5,0.495" Height="32"/>
-            <Button x:Name="LoadButton" Content="Load" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LoadButton_Click" Height="32" Width="52" Grid.Column="1" Margin="5,0,0,0"/>
-            <Button x:Name="RefreshButton" Content="Refresh" HorizontalAlignment="Left" Margin="62,0,0,0" VerticalAlignment="Top" Click="RefreshButton_Click" Grid.Column="1" Height="32" Width="79"/>
-            <WebView x:Name="MyWebView"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="2">
+            <TextBox x:Name="Address" HorizontalAlignment="Stretch" TextWrapping="Wrap" PlaceholderText="enter an Url..." Text="" VerticalAlignment="Top" Width="Auto" RenderTransformOrigin="0.5,0.495" Height="32"/>
+            <Button x:Name="LoadButton" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LoadButton_Click" Height="32" Width="Auto" Grid.Column="1" Margin="5,0,0,0" >
+                <SymbolIcon Symbol="Forward"/>
+            </Button>
+            <Button x:Name="HideButton" HorizontalAlignment="Left" VerticalAlignment="Top" Click="HideButton_Click" Height="32" Width="Auto" Grid.Column="1" Margin="91,0,0,0">
+                Hide Bar (F11)
+            </Button>
+            <Button x:Name="RefreshButton" HorizontalAlignment="Left" Margin="48.333,0,0,0" VerticalAlignment="Top" Click="RefreshButton_Click" Grid.Column="1" Height="32" Width="Auto">
+                <SymbolIcon Symbol="Refresh"/>
+            </Button>
+            <Button x:Name="ExpandButton" Content="+" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="2" Click="ExpandButton_Click" Height="Auto" Width="Auto" Margin="0,0,0,0"/>
+            <WebView x:Name="MyWebView"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" Grid.ColumnSpan="2" ScriptNotify="MyWebView_ScriptNotify" NavigationCompleted="MyWebView_NavigationCompleted">
                 <WebView.RenderTransform>
                     <CompositeTransform/>
                 </WebView.RenderTransform>
