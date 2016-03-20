@@ -40,11 +40,13 @@ namespace WallboardClient
             if (deviceConfiguration == null)
             {
                 deviceConfiguration = new DeviceConfiguration();
-                deviceConfiguration.DefaulUrl = "http://www.crossvertise.com";
             }
-
-            Address.Text = deviceConfiguration.DefaulUrl;
-            MyWebView.Navigate(new Uri(deviceConfiguration.DefaulUrl));
+            else
+            {
+                ToggleMenu();
+                Address.Text = deviceConfiguration.DefaulUrl;
+                MyWebView.Navigate(new Uri(deviceConfiguration.DefaulUrl));
+            } 
         }
 
         private async void LoadButton_Click(object sender, RoutedEventArgs e)
@@ -64,7 +66,7 @@ namespace WallboardClient
         {
             if (e.Key == Windows.System.VirtualKey.F11)
             {
-                ToogleMenu();
+                ToggleMenu();
             }
         }
 
@@ -73,11 +75,11 @@ namespace WallboardClient
             // check for F11 pressed
             if(e.Value == "KeyDown:122")
             {
-                ToogleMenu();
+                ToggleMenu();
             }
         }
 
-        private void ToogleMenu()
+        private void ToggleMenu()
         {
             if (MainGrid.RowDefinitions[0].Height == new GridLength(0))
             {
@@ -104,12 +106,12 @@ namespace WallboardClient
 
         private void HideButton_Click(object sender, RoutedEventArgs e)
         {
-            ToogleMenu();
+            ToggleMenu();
         }
 
         private void ExpandButton_Click(object sender, RoutedEventArgs e)
         {
-            ToogleMenu();
+            ToggleMenu();
         }
     }
 }

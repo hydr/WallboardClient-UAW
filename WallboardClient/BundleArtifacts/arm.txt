@@ -1,1 +1,1 @@
-MainPackage=C:\Users\Max\Documents\Github\WallboardClient\WallboardClient\bin\ARM\Release\WallboardClient_0.1.1.0_ARM.appx
+MainPackage=C:\Users\Max\Documents\Github\WallboardClient\WallboardClient\bin\ARM\Release\WallboardClient_0.1.2.0_ARM.appx
